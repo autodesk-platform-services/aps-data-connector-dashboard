@@ -1,6 +1,7 @@
 /////////////////////////////////////////////////////////////////////
-// Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Copyright 2022 Autodesk Inc
+// Written by Develope Advocacy and Support
+//
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -16,14 +17,14 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
 
-// Autodesk Forge configuration
+// Autodesk APS configuration
 
-const ForgeBaseUrl = 'https://developer.api.autodesk.com'
+const APSBaseUrl = 'https://developer.api.autodesk.com'
 
 const credentials = {
-  client_id: process.env.FORGE_CLIENT_ID,
-  client_secret: process.env.FORGE_CLIENT_SECRET,
-  callback_url: process.env.FORGE_CALLBACK_URL,
+  client_id: process.env.APS_CLIENT_ID,
+  client_secret: process.env.APS_CLIENT_SECRET,
+  callback_url: process.env.APS_CALLBACK_URL,
   dc_callback_url:process.env.DC_CALLBACK_URL,
 
   scopes: {
@@ -41,33 +42,33 @@ const credentials = {
 
 const endpoints = {
   authentication:{
-    authorize: `${ForgeBaseUrl}/authentication/v1/authorize` 
+    authorize: `${APSBaseUrl}/authentication/v1/authorize` 
   },
    bim360Admin:{ 
-      get_project_companies: `${ForgeBaseUrl}/hq/v1/accounts/{0}/projects/{1}/companies` ,
-      get_project_users:  `${ForgeBaseUrl}/bim360/admin/v1/projects/{0}/users`,
-      get_project_roles:  `${ForgeBaseUrl}/hq/v2/accounts/{0}/projects/{1}/industry_roles`
+      get_project_companies: `${APSBaseUrl}/hq/v1/accounts/{0}/projects/{1}/companies` ,
+      get_project_users:  `${APSBaseUrl}/bim360/admin/v1/projects/{0}/users`,
+      get_project_roles:  `${APSBaseUrl}/hq/v2/accounts/{0}/projects/{1}/industry_roles`
     }, 
   bim360DM:{
-      get_profile:`${ForgeBaseUrl}/userprofile/v1/users/@me`,
-      get_hubs:`${ForgeBaseUrl}/project/v1/hubs`,
-      get_hub:`${ForgeBaseUrl}/project/v1/hubs/{0}`,
-      get_projects:`${ForgeBaseUrl}/project/v1/hubs{0}/{1}`, 
-      get_project:`${ForgeBaseUrl}/project/v1/hubs/{0}/projects/{1}`,
-      get_item:`${ForgeBaseUrl}/data/v1/projects/{0}/items/{1}`,
-      get_item_parent:`${ForgeBaseUrl}/data/v1/projects/{0}/items/{1}/parent`
+      get_profile:`${APSBaseUrl}/userprofile/v1/users/@me`,
+      get_hubs:`${APSBaseUrl}/project/v1/hubs`,
+      get_hub:`${APSBaseUrl}/project/v1/hubs/{0}`,
+      get_projects:`${APSBaseUrl}/project/v1/hubs{0}/{1}`, 
+      get_project:`${APSBaseUrl}/project/v1/hubs/{0}/projects/{1}`,
+      get_item:`${APSBaseUrl}/data/v1/projects/{0}/items/{1}`,
+      get_item_parent:`${APSBaseUrl}/data/v1/projects/{0}/items/{1}/parent`
   },
   bim360DC:{ // Data Connector API
-      get_requests:`${ForgeBaseUrl}/data-connector/v1/accounts/{0}/requests`,
-      get_request:`${ForgeBaseUrl}/data-connector/v1/accounts/{0}/requests/{1}`,
-      get_jobs:`${ForgeBaseUrl}/data-connector/v1/accounts/{0}/requests/{1}/jobs`,
-      get_job:`${ForgeBaseUrl}/data-connector/v1/accounts/{0}/jobs/{1}`,
-      get_datalist:`${ForgeBaseUrl}/data-connector/v1/accounts/{0}/jobs/{1}/data-listing`,
-      get_data:`${ForgeBaseUrl}/data-connector/v1/accounts/{0}/jobs/{1}/data/{2}`,
+      get_requests:`${APSBaseUrl}/data-connector/v1/accounts/{0}/requests`,
+      get_request:`${APSBaseUrl}/data-connector/v1/accounts/{0}/requests/{1}`,
+      get_jobs:`${APSBaseUrl}/data-connector/v1/accounts/{0}/requests/{1}/jobs`,
+      get_job:`${APSBaseUrl}/data-connector/v1/accounts/{0}/jobs/{1}`,
+      get_datalist:`${APSBaseUrl}/data-connector/v1/accounts/{0}/jobs/{1}/data-listing`,
+      get_data:`${APSBaseUrl}/data-connector/v1/accounts/{0}/jobs/{1}/data/{2}`,
 
-      post_request:`${ForgeBaseUrl}/data-connector/v1/accounts/{0}/requests`,
-      patch_request:`${ForgeBaseUrl}/data-connector/v1/accounts/{0}/requests/{1}`,
-      delete_request:`${ForgeBaseUrl}/data-connector/v1/accounts/{0}/requests/{1}`
+      post_request:`${APSBaseUrl}/data-connector/v1/accounts/{0}/requests`,
+      patch_request:`${APSBaseUrl}/data-connector/v1/accounts/{0}/requests/{1}`,
+      delete_request:`${APSBaseUrl}/data-connector/v1/accounts/{0}/requests/{1}`
      }, 
   httpHeaders: function (access_token) {
       return {

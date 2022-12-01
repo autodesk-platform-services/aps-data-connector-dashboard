@@ -1,25 +1,26 @@
 {
-  "name": "BIM 360 Data Connector API",
+  "name": "data-connector-dashboard",
   "description": "This repository demonstrates export requests, jobs, data list and use the data to render some dashboards.",
-  "repository": "https://github.com/autodesk-forge/forge-bim360-data.connector.dashboard",
+  "repository": "https://github.com/autodesk-platform-services/aps-data-connector-dashboard",
   "logo": "https://avatars0.githubusercontent.com/u/8017462?v=3&s=200",
   "keywords": [
     "express",
     "framework",
     "autodesk",
-    "forge",
+    "aps",
     "bim360",
+    "acc",
     "data_connector"
   ],
   "env": {
-    "FORGE_CLIENT_ID": {
-      "description": "Forge Client ID. Ensure this ID also provisions with BIM 360 account"
+    "APS_CLIENT_ID": {
+      "description": "APS Client ID. Ensure this ID also provisions with BIM 360 account"
     },
-    "FORGE_CLIENT_SECRET": {
-      "description": "Forge Client Secret"
+    "APS_CLIENT_SECRET": {
+      "description": "APS Client Secret"
     },
-    "FORGE_CALLBACK_URL": {
-      "description": "Callback URL of your Forge app, required for 3-legged OAuth",
+    "APS_CALLBACK_URL": {
+      "description": "Callback URL of your APS app, required for 3-legged OAuth",
       "value": "https://<<YOUR HEROKU APP NAME HERE>>.herokuapp.com/oauth/callback"
     },
     "DC_CALLBACK_URL": {

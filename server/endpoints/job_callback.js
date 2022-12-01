@@ -1,6 +1,7 @@
 /////////////////////////////////////////////////////////////////////
-// Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Copyright 2022 Autodesk Inc
+// Written by Develope Advocacy and Support
+//
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -23,7 +24,7 @@ const router = express.Router();
  
 //callback when one job is done
 router.post('/callback', async (req, res, next) => {
-  res.end() //notify Forge this callback is triggered 
+  res.end() //notify APS this callback is triggered 
   console.log(`request callback is triggered: \n Account Id: ${req.body.accountId} \nRequest Id: ${req.body.requestId} \nJob Id: ${req.body.jobId}\nState: ${req.body.state}`)
   
   //do what you want with these data

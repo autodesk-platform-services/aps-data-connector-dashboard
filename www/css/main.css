@@ -38,37 +38,12 @@ html, body{
   overflow: auto;  
 
 }
-
- .bouton-image:before {
-  content: "";
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  margin-right: 5px;
-  vertical-align: text-top;
-  background-color: transparent;
-  background-position : center center;
-  background-repeat:no-repeat;
-}
-
-.monBouton:before{
-   background-image : url(/img/pdf-icon.png);
-}
- .buttonload {
-  background-color: #4CAF50; /* Green background */
-  border: none; /* Remove borders */
-  color: white; /* White text */
-  padding: 12px 24px; /* Some padding */
-  font-size: 16px; /* Set a font-size */
-}
-
+ 
 /* Add a right margin to each icon */
 .fa {
   margin-left: -12px;
   margin-right: 8px;
-}
-
-
+} 
 
 .tooltip-inner {
   background-color: #a7cc00 !important;
@@ -118,7 +93,7 @@ body {
   height: calc(100vh - 150px);
 }
 
-#forgeViewer {
+#apsViewer {
   width: 95%;
   height: 90% !important;
   display:block;

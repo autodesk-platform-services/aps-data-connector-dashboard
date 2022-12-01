@@ -5,7 +5,6 @@
 ![Platforms](https://img.shields.io/badge/Web-Windows%20%7C%20MacOS%20%7C%20Linux-lightgray.svg)
 [![Data-Management](https://img.shields.io/badge/Data%20Management-v2-green.svg)](https://forge.autodesk.com/en/docs/data/v2/reference/http/)
 
-[![BIM-360 API](https://img.shields.io/badge/BIM%20360api-v1-green.svg)](https://forge.autodesk.com/en/docs/bim360/v1/reference/http/)
 [![Data Connector API](https://img.shields.io/badge/Data%20Connector%20API-v1-yellowgreen)](https://forge.autodesk.com/en/docs/bim360/v1/overview/field-guide/data-connector/)
 
 [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
@@ -16,7 +15,7 @@ This sample demonstrates the following use cases:
 
 * Export requests with their service groups schedule interval, reoccurring interval and their jobs, status. 
 * Get data list of a complete job
-* Get data content and render dashboards. Current version only demos some dashboards of with BIM360 Issue data. You can extend the sample with dashboards for other data.
+* Get data content and render dashboards. Current version only demos some dashboards of with ACC or BIM360 Issue data. You can extend the sample with dashboards for other data.
 * Create new request with any type of schedule interval and service groups.
 
   
@@ -26,23 +25,18 @@ This sample demonstrates the following use cases:
 ## Demonstration
 [![https://youtu.be/sJmeiK3xYTU](http://img.youtube.com/vi/sJmeiK3xYTU/0.jpg)](https://youtu.be/sJmeiK3xYTU "Dashboard Sample of BIM 360 Data Connector API")
 
-## Live Demo
-https://bim360-data-connect-dashboard.herokuapp.com/#
-
-# Web App Setup
-
 ## Prerequisites
 
-1. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
-2. **BIM 360 Account**: must be Account Admin to add the app integration. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). 
-3. **BIM 360 Data Connector**: Ensure Account Insight is available and the user is Account Executive. Check [product help]( https://knowledge.autodesk.com/support/bim-360/learn-explore/caas/CloudHelp/cloudhelp/ENU/BIM360D-Insight/files/BIM360D-Insight-data-extractor-html-html.html) for more
+1. **APS Account**: Learn how to create a APS Account, activate subscription and create an app at [this tutorial](http://aps.autodesk.com/tutorials/#/account/). 
+2. **BIM 360 /ACC Account**: must be Account Admin to add the app integration. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). 
+3. **BIM 360 / ACC Data Connector**: Ensure Account Insight is available and the user is Account Executive. Check [product help]( https://knowledge.autodesk.com/support/bim-360/learn-explore/caas/CloudHelp/cloudhelp/ENU/BIM360D-Insight/files/BIM360D-Insight-data-extractor-html-html.html) for more
    <img src="./help/dcsetting.png" width="800">   
 4. **Node.js**: basic knowledge with [**Node.js**](https://nodejs.org/en/).
 5. **JavaScript** basic knowledge with **jQuery**, **Chart.js** and other basic 
 6. **ngrok**: Routing tool, [download here](https://ngrok.com/)
 
 
-For using this sample, you need an Autodesk developer credentials. Visit the [Forge Developer Portal](https://developer.autodesk.com), sign up for an account, then [create an app](https://developer.autodesk.com/myapps/create). For this new app, use **http://localhost:3000/oauth/callback** as Callback URL. Finally take note of the **Client ID** and **Client Secret**.
+For using this sample, you need an Autodesk developer credentials. Visit the [APS Developer Portal](https://aps.autodesk.com), sign up for an account, then [create an app](https://aps.autodesk.com/myapps/create). For this new app, use **http://localhost:3000/oauth/callback** as Callback URL. Finally take note of the **Client ID** and **Client Secret**.
 
 ## Running locally
 
@@ -50,24 +44,24 @@ Install [NodeJS](https://nodejs.org), version 12 or newer. The older version of 
 
 Clone this project or download it (this `nodejs` branch only). It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
 
-    git clone https://github.com/autodesk-forge/forge-bim360-data.connector.dashboard
+    git clone https://github.com/autodesk-platform-services/aps-data-connector-dashboard
 
 Install the required packages using `npm install`.
 
 **ngrok**
 
-Run `ngrok http 3000 -host-header="localhost:3000"` to create a tunnel to your local machine, then copy the address into the `FORGE_WEBHOOK_URL` environment variable.
+Run `ngrok http 3000 -host-header="localhost:3000"` to create a tunnel to your local machine, then copy the address into the `APS_WEBHOOK_URL` environment variable.
 
 **Environment variables**
 
-Set the enviroment variables with your Forge client id & secret, forge callback url (to get 3-legged token from user logging) and Data Connector callback url (DC_CALLBACK_URL). [Callback of Data Connector API](/server/endpoints/job_callback.js) is one payload parameter when creating one Data Connector Request. It will will trigger when a job completes, or fails, telling the request id, job id etc. You can decide what you want to do with the sample, or with your own sample.  Via command line, navigate to the folder where this repository was cloned and use the following:
+Set the enviroment variables with your APS client id & secret, APS callback url (to get 3-legged token from user logging) and Data Connector callback url (DC_CALLBACK_URL). [Callback of Data Connector API](/server/endpoints/job_callback.js) is one payload parameter when creating one Data Connector Request. It will will trigger when a job completes, or fails, telling the request id, job id etc. You can decide what you want to do with the sample, or with your own sample.  Via command line, navigate to the folder where this repository was cloned and use the following:
 
 Mac OSX/Linux (Terminal)
 
     npm install
-    export FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
-    export FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-    export FORGE_CALLBACK_URL=<<your callback url of Forge e.g. http://localhost:3000/oauth/callback>>
+    export APS_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+    export APS_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+    export APS_CALLBACK_URL=<<your callback url of APS e.g. http://localhost:3000/oauth/callback>>
     export DC_CALLBACK_URL=<<"your ngrok address here: e.g. http://abcd1234.ngrok.io/job/callback">>
 
     npm start
@@ -75,9 +69,9 @@ Mac OSX/Linux (Terminal)
 Windows (use **Node.js command line** from Start menu)
 
     npm install
-    set FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
-    set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-    set FORGE_CALLBACK_URL=<<your callback url of Forge e.g. http://localhost:3000/oauth/callback>>
+    set APS_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+    set APS_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+    set APS_CALLBACK_URL=<<your callback url of APS e.g. http://localhost:3000/oauth/callback>>
     set DC_CALLBACK_URL=<<"your ngrok address here: e.g. http://abcd1234.ngrok.io/job/callback">>
 
 
@@ -95,9 +89,9 @@ OR, set environment variables of [launch.json](/.vscode/launch.json) for debuggi
 
 ```json
 "env": {
-    "FORGE_CLIENT_ID": "your id here",
-    "FORGE_CLIENT_SECRET": "your secret here",
-    "FORGE_CALLBACK_URL": "http://localhost:3000/oauth/callback",
+    "APS_CLIENT_ID": "your id here",
+    "APS_CLIENT_SECRET": "your secret here",
+    "APS_CALLBACK_URL": "http://localhost:3000/oauth/callback",
     "DC_CALLBACK_URL": "your ngrok address here: e.g. http://abcd1234.ngrok.io/job/callback"
 },
 ``` 
@@ -121,9 +115,9 @@ As to other type than ONE_TIME, the execute start time may not happen soon, so t
  
 ## Deployment
 
-To deploy this application to Heroku, the **Callback URL** for Forge must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret and Callback URL for Forge.
+To deploy this application to Heroku, the **Callback URL** for APS must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret and Callback URL for APS.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/autodesk-forge/forge-bim360-data.connector.dashboard)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/autodesk-platform-services/aps-data-connector-dashboard)
 
 ## Limitation
 1. The sample also place a hold with [Callback feature of Data Connector API](/server/endpoints/job_callback.js). The callback will triggered when a job completes, or fails. You can decide what you want to do with the sample, or with your own sample. 
@@ -136,10 +130,10 @@ To deploy this application to Heroku, the **Callback URL** for Forge must use yo
 * Extracted data is stored on AWS for 30 days. If you do not want to extract the data of specific time again, ensure to download the data to your own database within 30 days.
 * When a request is newly created, it may take a few minutes API could return the jobs list.
 * Be careful not to set effectiveFrom, effectiveTo to the past time when you create request.
-* If a request is created in UI (Insight>>Data), the default description will be _IQ Data Extraction for <BIM360 Account ID>_. To make a shorter string in table view, this sample changes the description to _Extraction by UI_
+* If a request is created in UI (Insight>>Data), the default description will be _IQ Data Extraction for <BIM360 or ACC Account ID>_. To make a shorter string in table view, this sample changes the description to _Extraction by UI_
 
 ## Troubleshooting
-1. **Cannot see my BIM 360 hub**: Make sure to provision the Forge App Client ID within the BIM 360 Account, [learn more here](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). This requires the Account Admin permission.
+1. **Cannot see my BIM360 or ACC hub**: Make sure to provision the APS App Client ID within the BIM 360 Account, [learn more here](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). This requires the Account Admin permission.
  
 ## Further Reading
 **Document**
@@ -151,14 +145,14 @@ To deploy this application to Heroku, the **Callback URL** for Forge must use yo
 - [Data Connector Postman Collection](https://github.com/autodesk-forge/forge-bim360-data.connector.api-postman.collection)
 
 **Blogs**:
-- [Forge Blog](https://forge.autodesk.com/categories/bim-360-api)
+- [APS Blog](https://forge.autodesk.com/categories/bim-360-api)
 - [Field of View](https://fieldofviewblog.wordpress.com/), a BIM focused blog
 
 ## License
 This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
 
 ## Written by
-Xiaodong Liang [@coldwood](https://twitter.com/coldwood), [Forge Advocate and Support](http://forge.autodesk.com)
+Xiaodong Liang [@coldwood](https://twitter.com/coldwood), Developer Advocacy and Support, Autodesk
 
 
 

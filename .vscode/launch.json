@@ -13,9 +13,9 @@
             ],
             "program": "${workspaceFolder}/start.js",
             "env":{
-                "FORGE_CLIENT_ID":"",
-                "FORGE_CLIENT_SECRET":"",
-                "FORGE_CALLBACK_URL":"http://localhost:3000/oauth/callback",
+                "APS_CLIENT_ID":"",
+                "APS_CLIENT_SECRET":"",
+                "APS_CALLBACK_URL":"http://localhost:3000/oauth/callback",
                 "DC_CALLBACK_URL":"http://9acd9eea8d73.ngrok.io/job/callback"
             }
         }
