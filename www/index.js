@@ -8,18 +8,18 @@ const global_navHelp= new NavHelp()
 $(document).ready(function () {
 
 
-  $('#signInButton').click(global_oAuth.forgeSignIn);
+  $('#signInButton').click(global_oAuth.ApsSignIn);
   (async () => {
-    const currentToken = await global_oAuth.getForgeToken();
+    const currentToken = await global_oAuth.getApsToken();
     if (currentToken != '') {
 
-      let profile = await global_oAuth.getForgeUserProfile()
+      let profile = await global_oAuth.getApsUserProfile()
 
       $('#signInProfileImage').removeClass();
       $('#signInProfileImage').html('<img src="' + profile.picture + '" height="30"/>')
       $('#signInButtonText').text(profile.name);
       $('#signInButtonText').attr('title', 'Click to Sign Out');
-      $('#signInButton').click(global_oAuth.forgeLogoff);
+      $('#signInButton').click(global_oAuth.ApsLogoff);
 
       global_DataManagement.refreshHubs()
 
@@ -140,7 +140,7 @@ function delegateCreateRequestButton() {
       scheduleInterval: scheduleInterval,
       serviceGroups: serviceGroups,
       effectiveFrom: startDate,
-      //notified by Forge when one job is done
+      //notified by Aps when one job is done
       //will add valid endpoint of callback on server side
       callbackUrl: null
     } :
@@ -152,7 +152,7 @@ function delegateCreateRequestButton() {
         serviceGroups: serviceGroups,
         effectiveFrom: startDate,
         effectiveTo: endDate,
-        //notified by Forge when one job is done
+        //notified by Aps when one job is done
         //will add valid endpoint of callback on server side
         callbackUrl: null
       }
