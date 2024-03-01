@@ -1,5 +1,5 @@
 {
-  "name": "bim360-data-connector-dashboard-sample",
+  "name": "data-connector-dashboard-sample",
   "version": "1.0.0",
   "description": "",
   "main": "start.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/autodesk-platform-services/aps-data-connector-dashboard"
   },
   "author": "Xiaodong Liang",
   "license": "ISC",
