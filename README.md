@@ -50,7 +50,7 @@ Install the required packages using `npm install`.
 
 **ngrok**
 
-Run `ngrok http 3000 -host-header="localhost:3000"` to create a tunnel to your local machine, then copy the address into the `APS_WEBHOOK_URL` environment variable.
+Run `ngrok http 3000 -host-header="localhost:3000"` to create a tunnel to your local machine, then copy the address into the `DC_CALLBACK_URL` environment variable.
 
 **Environment variables**
 
