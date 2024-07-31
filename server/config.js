@@ -25,7 +25,7 @@ const credentials = {
   client_id: process.env.APS_CLIENT_ID,
   client_secret: process.env.APS_CLIENT_SECRET,
   callback_url: process.env.APS_CALLBACK_URL,
-  dc_callback_url:process.env.DC_CALLBACK_URL,
+  dc_callback_url:process.env.DC_CALLBACK_URL + '/dc-webhook-callback',
 
   scopes: {
       // Required scopes for the server-side application
