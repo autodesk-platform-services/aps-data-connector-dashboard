@@ -23,7 +23,7 @@ const express = require('express');
 const router = express.Router(); 
  
 //callback when one job is done
-router.post('/callback', async (req, res, next) => {
+router.post('/dc-webhook-callback', async (req, res, next) => {
   res.end() //notify APS this callback is triggered 
   console.log(`request callback is triggered: \n Account Id: ${req.body.accountId} \nRequest Id: ${req.body.requestId} \nJob Id: ${req.body.jobId}\nState: ${req.body.state}`)
   
