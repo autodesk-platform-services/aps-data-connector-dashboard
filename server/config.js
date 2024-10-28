@@ -42,7 +42,7 @@ const credentials = {
 
 const endpoints = {
   authentication:{
-    authorize: `${APSBaseUrl}/authentication/v1/authorize` 
+    authorize: `${APSBaseUrl}/authentication/v2/authorize` 
   },
    bim360Admin:{ 
       get_project_companies: `${APSBaseUrl}/hq/v1/accounts/{0}/projects/{1}/companies` ,
